@@ -12,7 +12,10 @@
     "mapkit",
     "mapkitjs",
     "mapkit.js",
-    "maps"
+    "maps",
+    "types",
+    "typings",
+    "typescript"
   ],
   "author": "Apple",
   "license": "MIT",
@@ -20,5 +23,5 @@
     "url": "https://github.com/harveyconnor/mapkit.js/issues"
   },
   "homepage": "https://github.com/harveyconnor/mapkit.js#readme",
-  "types": "index.d.ts"
+  "types": "types"
 }
