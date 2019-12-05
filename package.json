@@ -1,6 +1,6 @@
 {
   "name": "mapkit.js-apple",
-  "version": "5.34.4",
+  "version": "5.34.5",
   "description": "An npm module for Apple's Mapkit.JS",
   "main": "index.js",
   "repository": {

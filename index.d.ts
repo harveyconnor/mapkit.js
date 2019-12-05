@@ -1,147 +1,169 @@
-export as namespace Mapkit;
+/** The JavaScript API for embedding Apple maps on your website. */
+declare namespace mapkit {
 
-export interface mapkit {
-  init(options: MapKitInitOptions): void;
-  Map: Map;
-  MapRect: MapRect;
-  Geocoder: Geocoder;
-}
+  /** Initialize MapKit JS by providing an authorization callback function and optional language. */
+  function init(options: MapKitInitOptions): void;
 
-export interface MapKitInitOptions {
-  language: string;
-  authorizationCallback(done: (token: string) => void): void;
-}
+  /** Subscribes a listener function to an event type. */
+  function addEventListener<T>(type: InitializationEventType, listener: (this: T, event: InitializationEvent) => void, thisObject?: T): void;
 
-/**
- * Creates a map that you embed on a webpage, and initializes its display properties and other options.
- */
-export class Map {
-  constructor(parent?: string, options?: MapContructorOptions);
-}
+  /** Unsubscribes a listener function from an event type. */
+  function removeEventListener<T>(type: InitializationEventType, listener: (this: T, event: InitializationEvent) => void, thisObject?: T): void;
 
-/**
- * An object that contains options for initializing a map's features.
- */
-export interface MapConstructorOptions {
-  /** The visible area of the map defined in map units. */
-  visibleMapRect: MapRect;
-  /** The area currently displayed by the map. */
-  region: CoordinateRegion;
-  /** The map coordinate at the center of the map view. */
-  center: Coordinate;
-  /** The map's rotation, in degrees. */
-  rotation: number;
-  /** The CSS color that is used to paint the user interface controls on the map. */
-  tintColor: string;
-  /** The map’s color scheme when displaying standard or muted standard map types. */
-  colorScheme: string;
-  /** The type of data displayed by the map view. */
-  mapType: string;
-  /** The map's inset margins. */
-  padding: Padding;
-  /** A Boolean value that determines whether to display a control that lets users choose the map type. */
-  showsMapTypeControl: boolean;
-  /** A Boolean value that determines whether the user may rotate the map using the compass control or a rotate gesture. */
-  isRotationEnabled: boolean;
-  /** A feature visibility setting that determines when the compass is visible. */
-  showsCompass: string;
-  /** A Boolean value that determines whether the user may zoom in and out on the map using pinch gestures or the zoom control. */
-  isZoomEnabled: any;
-  /** A Boolean value that determines whether to display a control for zooming in and zooming out on a map. */
-  showsZoomControl: any;
-  /** A Boolean value that determines whether the user may scroll the map with a pointing device or gestures on a touchscreen. */
-  isScrollEnabled: boolean;
-  /** A feature visibility setting that determines when the map's scale is displayed. */
-  showsScale: string;
-  /** A delegate method for modifying cluster annotations. */
-  annotationForCluster: Annotation;
-  /** An array of all the annotations on the map. */
-  annotations: Annotation[];
-  /** The annotation on the map that is selected. */
-  selectedAnnotation: Annotation;
-  /** An array of all of the map's overlays. */
-  overlays: Overlay[];
-  /** The overlay on the map that is selected. */
-  selectedOverlay: Overlay;
-  /** A Boolean value that determines whether the map displays points of interest. */
-  showsPointsOfInterest: boolean;
-  /** A Boolean value that determines whether to show the user's location on the map. */
-  showsUserLocation: boolean;
-  /** A Boolean value that determines whether to center the map on the user's location. */
-  tracksUserLocation: boolean;
-  /** A Boolean value that determines whether the user location control is visible. */
-  showsUserLocationControl: boolean;
-}
+  /** A language ID indicating the selected language. */
+  let language: string;
 
-export class MapRect {
-  constructor()
-}
+  /** The build string. */
+  readonly const build: string;
 
-export class CoordinateRegion {
-  constructor()
-}
+  /** The version of MapKit JS. */
+  readonly const version: string;
 
-export class Coordinate {
-  constructor()
-}
+  /** Initialization options for MapKit JS. */
+  export interface MapKitInitOptions {
+    /** An ID that indicates the preferred language in which to display map labels, controls, directions, and other text. */
+    language: string;
+    /** A callback function that obtains a token. */
+    authorizationCallback(done: (token: string) => void): void;
+  }
 
-export class Padding {
-  constructor()
-}
+  /**
+   * Creates a map that you embed on a webpage, and initializes its display properties and other options.
+   */
+  export class Map {
+    constructor(parent?: string, options?: MapConstructorOptions);
+  }
 
-export class Annotation {
-  constructor()
-}
+  /**
+   * An object that contains options for initializing a map's features.
+   */
+  export interface MapConstructorOptions {
+    /** The visible area of the map defined in map units. */
+    visibleMapRect: MapRect;
+    /** The area currently displayed by the map. */
+    region: CoordinateRegion;
+    /** The map coordinate at the center of the map view. */
+    center: Coordinate;
+    /** The map's rotation, in degrees. */
+    rotation: number;
+    /** The CSS color that is used to paint the user interface controls on the map. */
+    tintColor: string;
+    /** The map’s color scheme when displaying standard or muted standard map types. */
+    colorScheme: string;
+    /** The type of data displayed by the map view. */
+    mapType: string;
+    /** The map's inset margins. */
+    padding: Padding;
+    /** A Boolean value that determines whether to display a control that lets users choose the map type. */
+    showsMapTypeControl: boolean;
+    /** A Boolean value that determines whether the user may rotate the map using the compass control or a rotate gesture. */
+    isRotationEnabled: boolean;
+    /** A feature visibility setting that determines when the compass is visible. */
+    showsCompass: string;
+    /** A Boolean value that determines whether the user may zoom in and out on the map using pinch gestures or the zoom control. */
+    isZoomEnabled: any;
+    /** A Boolean value that determines whether to display a control for zooming in and zooming out on a map. */
+    showsZoomControl: any;
+    /** A Boolean value that determines whether the user may scroll the map with a pointing device or gestures on a touchscreen. */
+    isScrollEnabled: boolean;
+    /** A feature visibility setting that determines when the map's scale is displayed. */
+    showsScale: string;
+    /** A delegate method for modifying cluster annotations. */
+    annotationForCluster: Annotation;
+    /** An array of all the annotations on the map. */
+    annotations: Annotation[];
+    /** The annotation on the map that is selected. */
+    selectedAnnotation: Annotation;
+    /** An array of all of the map's overlays. */
+    overlays: Overlay[];
+    /** The overlay on the map that is selected. */
+    selectedOverlay: Overlay;
+    /** A Boolean value that determines whether the map displays points of interest. */
+    showsPointsOfInterest: boolean;
+    /** A Boolean value that determines whether to show the user's location on the map. */
+    showsUserLocation: boolean;
+    /** A Boolean value that determines whether to center the map on the user's location. */
+    tracksUserLocation: boolean;
+    /** A Boolean value that determines whether the user location control is visible. */
+    showsUserLocationControl: boolean;
+  }
 
-export class Overlay {
-  constructor()
-}
+  export class MapRect {
+    constructor()
+  }
 
-/** A geocoder that converts human-readable addresses to geographic coordinates and vice versa. */
-export class Geocoder {
-  constructor(options?: GeocoderConstructorOptions);
-  /** Converts an address to geographic coordinates. */
-  lookup(place: string, callback: (error: Error | null, data: GeocoderResponse) => void, options?: GeocoderLookupOptions): number
-  /** Converts a geographic coordinate to an address. */
-  reverseLookup(coordinate: Coordinate, callback: (error: Error | null, data: GeocoderResponse) => void, options?: GeocoderReverseLookupOptions): number;
-  /** Cancels the pending lookup or reverse lookup specified by its request ID. */
-  cancel(): void;
-}
+  export class CoordinateRegion {
+    constructor()
+  }
 
-export interface GeocoderConstructorOptions {
-  language: string;
-  getsUserLocation: boolean;
-}
+  export class Coordinate {
+    constructor()
+  }
 
-export interface GeocoderLookupOptions {
-  /** The language in which to display the lookup results. */
-  language: string;
-  /** Coordinates used to constrain the lookup results. */
-  coordinate: Coordinate;
-  /** A region in which to constrain lookup results. */
-  region: CoordinateRegion;
-  /** A list of countries in which to constrain the lookup results. */
-  limitToCountries: string;
-}
+  export class Padding {
+    constructor()
+  }
 
-export interface GeocoderReverseLookupOptions {
-  /** The language in which to display the reverse lookup results. */
-  language: string;
-}
+  export class Annotation {
+    constructor()
+  }
 
-export interface GeocoderResponse {
-  results: Place[];
-}
+  export class Overlay {
+    constructor()
+  }
 
-export interface Place {
-  /** The name of the place. */
-  name: string;
-  /** The latitude and longitude for the place. */
-  coordinate: Coordinate;
-  /** The address of the place, formatted using its country's conventions. */
-  formattedAddress: string;
-  /** The geographic region associated with the place. */
-  region: CoordinateRegion;
-  /** The country code associated with the place. */
-  countryCode: string;
+  /** A geocoder that converts human-readable addresses to geographic coordinates and vice versa. */
+  export class Geocoder {
+    constructor(options?: GeocoderConstructorOptions);
+    /** Converts an address to geographic coordinates. */
+    lookup(place: string, callback: (error: Error | null, data: GeocoderResponse) => void, options?: GeocoderLookupOptions): number
+    /** Converts a geographic coordinate to an address. */
+    reverseLookup(coordinate: Coordinate, callback: (error: Error | null, data: GeocoderResponse) => void, options?: GeocoderReverseLookupOptions): number;
+    /** Cancels the pending lookup or reverse lookup specified by its request ID. */
+    cancel(): void;
+  }
+
+  export interface GeocoderConstructorOptions {
+    language: string;
+    getsUserLocation: boolean;
+  }
+
+  export interface GeocoderLookupOptions {
+    /** The language in which to display the lookup results. */
+    language: string;
+    /** Coordinates used to constrain the lookup results. */
+    coordinate: Coordinate;
+    /** A region in which to constrain lookup results. */
+    region: CoordinateRegion;
+    /** A list of countries in which to constrain the lookup results. */
+    limitToCountries: string;
+  }
+
+  export interface GeocoderReverseLookupOptions {
+    /** The language in which to display the reverse lookup results. */
+    language: string;
+  }
+
+  export interface GeocoderResponse {
+    results: Place[];
+  }
+
+  export interface Place {
+    /** The name of the place. */
+    name: string;
+    /** The latitude and longitude for the place. */
+    coordinate: Coordinate;
+    /** The address of the place, formatted using its country's conventions. */
+    formattedAddress: string;
+    /** The geographic region associated with the place. */
+    region: CoordinateRegion;
+    /** The country code associated with the place. */
+    countryCode: string;
+  }
+
+  type InitializationEventType = 'configuration-change' | 'error';
+
+  interface InitializationEvent {
+    status: 'Initialized' | 'Refreshed' | 'Unauthorized' | 'Too Many Requests';
+  }
 }
