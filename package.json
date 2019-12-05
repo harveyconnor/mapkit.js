@@ -1,6 +1,6 @@
 {
-  "name": "mapkit.js",
-  "version": "5.34.2",
+  "name": "mapkit.js-apple",
+  "version": "5.34.4",
   "description": "An npm module for Apple's Mapkit.JS",
   "main": "index.js",
   "repository": {
@@ -19,5 +19,6 @@
   "bugs": {
     "url": "https://github.com/harveyconnor/mapkit.js/issues"
   },
-  "homepage": "https://github.com/harveyconnor/mapkit.js#readme"
+  "homepage": "https://github.com/harveyconnor/mapkit.js#readme",
+  "types": "index.d.ts"
 }
