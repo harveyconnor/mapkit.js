@@ -1,0 +1,23 @@
+{
+  "name": "mapkit.js",
+  "version": "5.34.2",
+  "description": "An npm module for Apple's Mapkit.JS",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harveyconnor/mapkit.js.git"
+  },
+  "keywords": [
+    "apple",
+    "mapkit",
+    "mapkitjs",
+    "mapkit.js",
+    "maps"
+  ],
+  "author": "Apple",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/harveyconnor/mapkit.js/issues"
+  },
+  "homepage": "https://github.com/harveyconnor/mapkit.js#readme"
+}
