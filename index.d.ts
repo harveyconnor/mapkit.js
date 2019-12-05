@@ -1,5 +1,5 @@
 /** The JavaScript API for embedding Apple maps on your website. */
-declare namespace mapkit {
+export declare namespace mapkit {
 
   /** Initialize MapKit JS by providing an authorization callback function and optional language. */
   function init(options: MapKitInitOptions): void;
