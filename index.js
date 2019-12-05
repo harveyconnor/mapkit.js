@@ -1,2 +1,1 @@
-require('./mapkit.js');
-module.exports = window.mapkit;
+require("./mapkit.js"),module.exports=window.mapkit;
