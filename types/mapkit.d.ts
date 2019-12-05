@@ -21,7 +21,7 @@ declare module mapkit {
   /** Initialization options for MapKit JS. */
   interface MapKitInitOptions {
     /** An ID that indicates the preferred language in which to display map labels, controls, directions, and other text. */
-    language: string;
+    language?: string;
     /** A callback function that obtains a token. */
     authorizationCallback(done: (token: string) => void): void;
   }

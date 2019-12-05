@@ -20,13 +20,13 @@ declare namespace mapkit {
 
   interface GeocoderLookupOptions {
     /** The language in which to display the lookup results. */
-    language: string;
+    language?: string;
     /** Coordinates used to constrain the lookup results. */
-    coordinate: Coordinate;
+    coordinate?: Coordinate;
     /** A region in which to constrain lookup results. */
-    region: CoordinateRegion;
+    region?: CoordinateRegion;
     /** A list of countries in which to constrain the lookup results. */
-    limitToCountries: string;
+    limitToCountries?: string;
   }
 
   interface GeocoderReverseLookupOptions {
